@@ -1,0 +1,1 @@
+import{r as e}from"./store-D0vHuek4.js";import{t}from"./engine-D4GVNwAw.js";function n(n,r,i){n.length&&(e.getState().queue.shuffle&&t.toggleShuffle(),t.playContext(n,r,i))}function r(n,r){n.length&&(e.getState().queue.shuffle||t.toggleShuffle(),t.playContext(n,Math.floor(Math.random()*n.length),r))}export{r as n,n as t};

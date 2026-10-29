@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" data-scheme="light" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" data-scheme="dark" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <!-- "default" keeps the status bar readable in both light and dark: iOS
+         paints it in the page colour with dark or light text as needed. -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="LeoMusic" />
+    <meta name="description" content="La tua musica, ovunque." />
+    <link rel="icon" href="/leomusic-web/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/leomusic-web/icon-180.png" />
+    <title>LeoMusic</title>
+    <!-- The first frame is already the app's background, before any CSS loads. -->
+    <style>html,body{background:#000;margin:0}@media (prefers-color-scheme:light){html,body{background:#fff}}html[data-theme=light],html[data-theme=light] body{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style>
+    <!-- Opening titles, the same as the sister app LeoTv's: the app icon in the
+         middle of the screen lights up, then grows a little and fades into the
+         app. Pure CSS (only opacity and transform), shown once per session;
+         public/intro.js removes it once the light has come on and the app has
+         drawn. -->
+    <style>#intro{z-index:9999;pointer-events:none;background:#050507;justify-content:center;align-items:center;transition:opacity .38s cubic-bezier(.23,1,.32,1);display:flex;position:fixed;inset:0}.no-intro #intro{display:none}.intro__icon{width:28vw;height:28vw;transition:transform .45s cubic-bezier(.23,1,.32,1);position:relative}@media (orientation:landscape){.intro__icon{width:22vmin;height:22vmin}}.intro__icon svg{width:100%;height:100%;position:absolute;top:0;left:0}.intro__light{opacity:0;will-change:opacity;animation:1s cubic-bezier(.45,0,.2,1) .15s both intro-light}#intro.is-out{opacity:0}#intro.is-out .intro__icon{transform:scale(1.18)}@keyframes intro-light{0%{opacity:0}55%{opacity:1}to{opacity:.85}}@media (prefers-reduced-motion:reduce){.intro__light{opacity:.85;animation:none}#intro.is-out .intro__icon{transform:none}}</style>
+    <script src="/leomusic-web/intro-gate.js"></script>
+    <script type="module" crossorigin src="/leomusic-web/assets/index-CurazqNH.js"></script>
+    <link rel="modulepreload" crossorigin href="/leomusic-web/assets/store-D0vHuek4.js">
+    <link rel="modulepreload" crossorigin href="/leomusic-web/assets/engine-D4GVNwAw.js">
+    <link rel="modulepreload" crossorigin href="/leomusic-web/assets/Artwork-CgRZRzYP.js">
+    <link rel="stylesheet" crossorigin href="/leomusic-web/assets/Artwork-C0oaDPuJ.css">
+    <link rel="stylesheet" crossorigin href="/leomusic-web/assets/index-D-tBxsMQ.css">
+  <link rel="manifest" href="/leomusic-web/manifest.webmanifest"></head>
+  <body>
+    <div id="root"></div>
+    <div id="intro" aria-hidden="true">
+      <div class="intro__icon"><svg viewBox="0 0 1000 1000"><defs><linearGradient id="in-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d1d21"/><stop offset="1" stop-color="#060607"/></linearGradient><radialGradient id="in-glow" cx=".5" cy=".62" r=".55"><stop offset="0" stop-color="#7b5cff" stop-opacity=".3"/><stop offset="1" stop-color="#7b5cff" stop-opacity="0"/></radialGradient><linearGradient id="in-stem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a48bff"/><stop offset=".85" stop-color="#7b5cff"/><stop offset="1" stop-color="#5b3be0"/></linearGradient><linearGradient id="in-foot" gradientUnits="userSpaceOnUse" x1="485" y1="0" x2="725" y2="0"><stop offset="0" stop-color="#3f22b8"/><stop offset=".45" stop-color="#6847f0"/><stop offset="1" stop-color="#a48bff"/></linearGradient></defs><path d="M0 270C0 62 62 0 270 0h460c208 0 270 62 270 270v460c0 208-62 270-270 270H270C62 1000 0 938 0 730z" fill="url(#in-bg)"/><path d="M0 270C0 62 62 0 270 0h460c208 0 270 62 270 270v460c0 208-62 270-270 270H270C62 1000 0 938 0 730z" fill="url(#in-glow)"/><path d="M345 205h125a15 15 0 0 1 15 15v565H330V220a15 15 0 0 1 15-15z" fill="url(#in-stem)"/><path d="M525 625h25a15 15 0 0 1 15 15V785H510V640a15 15 0 0 1 15-15z" fill="url(#in-foot)"/><path d="M605 675h25a15 15 0 0 1 15 15V785H590V690a15 15 0 0 1 15-15z" fill="url(#in-foot)"/><path d="M685 725h25a15 15 0 0 1 15 15V785H670V740a15 15 0 0 1 15-15z" fill="url(#in-foot)"/></svg><svg class="intro__light" viewBox="0 0 1000 1000"><defs><radialGradient id="in-lit" cx=".5" cy=".6" r=".5"><stop offset="0" stop-color="#8f74ff" stop-opacity=".45"/><stop offset="1" stop-color="#7b5cff" stop-opacity="0"/></radialGradient><linearGradient id="in-lstem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9b9ff"/><stop offset=".85" stop-color="#957bff"/><stop offset="1" stop-color="#6d4ef5"/></linearGradient><linearGradient id="in-lfoot" gradientUnits="userSpaceOnUse" x1="485" y1="0" x2="725" y2="0"><stop offset="0" stop-color="#6d4ef5"/><stop offset="1" stop-color="#c9b9ff"/></linearGradient></defs><path d="M0 270C0 62 62 0 270 0h460c208 0 270 62 270 270v460c0 208-62 270-270 270H270C62 1000 0 938 0 730z" fill="url(#in-lit)"/><path d="M345 205h125a15 15 0 0 1 15 15v565H330V220a15 15 0 0 1 15-15z" fill="url(#in-lstem)"/><path d="M525 625h25a15 15 0 0 1 15 15V785H510V640a15 15 0 0 1 15-15z" fill="url(#in-lfoot)"/><path d="M605 675h25a15 15 0 0 1 15 15V785H590V690a15 15 0 0 1 15-15z" fill="url(#in-lfoot)"/><path d="M685 725h25a15 15 0 0 1 15 15V785H670V740a15 15 0 0 1 15-15z" fill="url(#in-lfoot)"/></svg></div>
+    </div>
+    <script src="/leomusic-web/intro.js"></script>
+    <!-- Refraction filter for Chromium; Safari ignores it and keeps frosted glass. -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <filter id="lg-refract" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.008 0.012" numOctaves="2" seed="7" result="map" />
+        <feGaussianBlur in="map" stdDeviation="2" result="soft" />
+        <feDisplacementMap in="SourceGraphic" in2="soft" scale="18" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </svg>
+  </body>
+</html>
