@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://i.ytimg.com https://*.googleusercontent.com https://*.ggpht.com https:; media-src 'self' blob: data: https:; font-src 'self' data:; connect-src 'self' blob: data: https:; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
+    <!-- No page address goes to other sites (TMDB, Google image hosts, the Cast library): it would name the site and the account that publishes it. -->
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" data-scheme="light" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" data-scheme="dark" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <!-- "default" keeps the status bar readable in both light and dark: iOS
+         paints it in the page colour with dark or light text as needed. -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="LeoMusic" />
+    <!-- a private service: search engines must not list it -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="Servizio privato, riservato alle persone invitate." />
+    <link rel="icon" href="/leomusic-web/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/leomusic-web/icon-180.png" />
+    <title>LeoMusic</title>
+    <!-- iPhone launch screens for the dark look: the violet L alone on black, in the same box as the opening titles, so the start does not jump; light pages keep the white default -->
+    <link rel="apple-touch-startup-image" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/leomusic-web/splash/1320x2868.png" />
+    <link rel="apple-touch-startup-image" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/leomusic-web/splash/1206x2622.png" />
+    <link rel="apple-touch-startup-image" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/leomusic-web/splash/1290x2796.png" />
+    <link rel="apple-touch-startup-image" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/leomusic-web/splash/1179x2556.png" />
+    <link rel="apple-touch-startup-image" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/leomusic-web/splash/1260x2736.png" />
+    <link rel="apple-touch-startup-image" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/leomusic-web/splash/1284x2778.png" />
+    <link rel="apple-touch-startup-image" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/leomusic-web/splash/1170x2532.png" />
+    <link rel="apple-touch-startup-image" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/leomusic-web/splash/1125x2436.png" />
+    <link rel="apple-touch-startup-image" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/leomusic-web/splash/1242x2688.png" />
+    <link rel="apple-touch-startup-image" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/leomusic-web/splash/828x1792.png" />
+    <link rel="apple-touch-startup-image" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/leomusic-web/splash/750x1334.png" />
+    <!-- The first frame is already the app's background, before any CSS loads. -->
+    <style>html,body{background:#000;margin:0}@media (prefers-color-scheme:light){html,body{background:#fff}}html[data-theme=light],html[data-theme=light] body{background:#fff}html[data-theme=dark],html[data-theme=dark] body{background:#000}</style>
+    <!-- Opening titles, the same as the sister app LeoTv's: the "LeoMusic"
+         wordmark folds into its violet L. Pure CSS (only opacity and transform),
+         shown once per session; public/intro.js removes it once the L has
+         settled and the app has drawn. With reduced motion the L only fades in.
+         The block between the markers is generated by web/brand/generate.py
+         (scripts/brand_intro.py): do not edit it. -->
+    <!-- brand:intro-style:start -->
+<style>#intro{z-index:9999;background:var(--intro-bg);color:var(--intro-ink);pointer-events:none;transition:opacity .38s cubic-bezier(.23,1,.32,1);position:fixed;inset:0}.no-intro #intro{display:none}#intro.is-out{opacity:0}#intro.is-out .intro__l{animation:.22s cubic-bezier(.23,1,.32,1) both intro-l-out}@keyframes intro-l-out{to{opacity:0}}:root{--intro-bg:#000;--intro-ink:#fff;--intro-accent:#7b5cff}@media (prefers-color-scheme:light){:root{--intro-bg:#fff;--intro-ink:#000;--intro-accent:#5b3be0}}html[data-theme=light]{--intro-bg:#fff;--intro-ink:#000;--intro-accent:#5b3be0}html[data-theme=dark]{--intro-bg:#000;--intro-ink:#fff;--intro-accent:#7b5cff}.intro__word{width:4.589em;height:.728em;margin:-.364em 0 0 -2.295em;font-size:16.5613vmin;animation:.8s cubic-bezier(.77,0,.175,1) .82s both intro-shift;position:absolute;top:50%;left:50%}.intro__in{width:100%;height:100%;animation:.5s cubic-bezier(.23,1,.32,1) both intro-in;position:absolute;top:0;left:0}.intro__c{fill:currentColor;height:.728em;position:absolute;top:0;overflow:visible}.intro__c--v{color:var(--intro-accent)}.intro__l{transform-origin:52.7% 49.5%;width:28vmin;height:28vmin;margin:-14vmin 0 0 -14vmin;animation:.8s cubic-bezier(.77,0,.175,1) .82s both intro-l;position:absolute;top:50%;left:50%}@media (orientation:landscape){.intro__l{width:22vmin;height:22vmin;margin:-11vmin 0 0 -11vmin;animation-name:intro-l-ls}}@keyframes intro-in{0%{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}@keyframes intro-shift{to{transform:translate(2.007em)}}@keyframes intro-c0{to{opacity:0}}@keyframes intro-l{0%{opacity:0;transform:scale(.742)}to{opacity:1;transform:none}}@keyframes intro-l-ls{0%{opacity:0;transform:scale(.944)}to{opacity:1;transform:none}}.intro__c0{width:.575em;animation:.8s cubic-bezier(.77,0,.175,1) .82s both intro-c0;left:0}.intro__c1{width:.583em;animation:.64s cubic-bezier(.77,0,.175,1) .98s both intro-c1;left:.555em}@keyframes intro-c1{to{opacity:0;transform:translate(-.559em)scaleX(.2)}}.intro__c2{width:.607em;animation:.64s cubic-bezier(.77,0,.175,1) .953s both intro-c2;left:1.118em}@keyframes intro-c2{to{opacity:0;transform:translate(-1.134em)scaleX(.2)}}.intro__c3{width:.925em;animation:.64s cubic-bezier(.77,0,.175,1) .927s both intro-c3;left:1.706em}@keyframes intro-c3{to{opacity:0;transform:translate(-1.88em)scaleX(.2)}}.intro__c4{width:.618em;animation:.64s cubic-bezier(.77,0,.175,1) .9s both intro-c4;left:2.61em}@keyframes intro-c4{to{opacity:0;transform:translate(-2.632em)scaleX(.2)}}.intro__c5{width:.559em;animation:.64s cubic-bezier(.77,0,.175,1) .873s both intro-c5;left:3.209em}@keyframes intro-c5{to{opacity:0;transform:translate(-3.2em)scaleX(.2)}}.intro__c6{width:.279em;animation:.64s cubic-bezier(.77,0,.175,1) .847s both intro-c6;left:3.747em}@keyframes intro-c6{to{opacity:0;transform:translate(-3.599em)scaleX(.2)}}.intro__c7{width:.583em;animation:.64s cubic-bezier(.77,0,.175,1) .82s both intro-c7;left:4.006em}@keyframes intro-c7{to{opacity:0;transform:translate(-4.01em)scaleX(.2)}}@keyframes intro-fade{0%{opacity:0}to{opacity:1}}@media (prefers-reduced-motion:reduce){.intro__word{display:none}.intro__l{animation:.32s cubic-bezier(.23,1,.32,1) both intro-fade}}</style>
+    <!-- brand:intro-style:end -->
+    <script src="/leomusic-web/intro-gate.js"></script>
+    <script type="module" crossorigin src="/leomusic-web/assets/index-EeIkMHDV.js"></script>
+    <link rel="modulepreload" crossorigin href="/leomusic-web/assets/store-D0vHuek4.js">
+    <link rel="modulepreload" crossorigin href="/leomusic-web/assets/engine-o9ZBSBzW.js">
+    <link rel="modulepreload" crossorigin href="/leomusic-web/assets/hooks-BaCAb_cg.js">
+    <link rel="stylesheet" crossorigin href="/leomusic-web/assets/hooks-C0oaDPuJ.css">
+    <link rel="stylesheet" crossorigin href="/leomusic-web/assets/index-BI0mvzlC.css">
+  <link rel="manifest" href="/leomusic-web/manifest.webmanifest"></head>
+  <body>
+    <div id="root"></div>
+    <!-- brand:intro:start -->
+<div id="intro" aria-hidden="true">
+  <div class="intro__word"><div class="intro__in"><svg class="intro__c intro__c0" viewBox="0 -1490 1178 1490"><path d="M80 0V-1490H496V-352H1138V0Z"/></svg><svg class="intro__c intro__c1" viewBox="0 -1490 1194 1490"><path d="M607 24Q443 24 316.0 -46.5Q189 -117 117.5 -242.0Q46 -367 46 -528Q46 -690 117.0 -814.5Q188 -939 312.5 -1009.5Q437 -1080 599 -1080Q761 -1080 886.0 -1011.0Q1011 -942 1081.5 -820.0Q1152 -698 1152 -539V-432H434Q436 -348 486.0 -301.0Q536 -254 623 -254Q687 -254 732.5 -278.0Q778 -302 794 -345H1148Q1129 -237 1053.0 -154.0Q977 -71 861.5 -23.5Q746 24 607 24ZM437 -656H783Q773 -721 728.0 -757.5Q683 -794 610 -794Q537 -794 492.0 -757.5Q447 -721 437 -656Z"/></svg><svg class="intro__c intro__c2" viewBox="0 -1490 1244 1490"><path d="M622 24Q451 24 321.0 -43.5Q191 -111 118.5 -235.0Q46 -359 46 -528Q46 -697 118.5 -820.5Q191 -944 321.0 -1012.0Q451 -1080 622 -1080Q794 -1080 923.5 -1012.0Q1053 -944 1125.5 -820.5Q1198 -697 1198 -528Q1198 -359 1125.5 -235.0Q1053 -111 923.5 -43.5Q794 24 622 24ZM622 -288Q693 -288 743.5 -348.5Q794 -409 794 -528Q794 -647 743.5 -707.5Q693 -768 622 -768Q551 -768 500.5 -707.5Q450 -647 450 -528Q450 -409 500.5 -348.5Q551 -288 622 -288Z"/></svg><svg class="intro__c intro__c3 intro__c--v" viewBox="0 -1490 1894 1490"><path d="M80 0V-1490H702L836 -1024Q858 -948 889.0 -830.0Q920 -712 948 -597Q976 -712 1007.0 -830.0Q1038 -948 1059 -1024L1191 -1490H1814V0H1406V-576Q1406 -626 1408.5 -704.5Q1411 -783 1414.0 -876.5Q1417 -970 1419 -1065Q1384 -924 1348.5 -789.0Q1313 -654 1289 -576L1116 0H780L604 -576Q581 -652 546.0 -781.0Q511 -910 475 -1047Q479 -909 483.5 -778.5Q488 -648 488 -576V0Z"/></svg><svg class="intro__c intro__c4 intro__c--v" viewBox="0 -1490 1266 1490"><path d="M442 24Q266 24 176.0 -88.0Q86 -200 86 -390V-1056H486V-480Q486 -401 524.5 -357.5Q563 -314 633 -314Q780 -314 780 -496V-1056H1180V0H785V-176Q732 -85 649.0 -30.5Q566 24 442 24Z"/></svg><svg class="intro__c intro__c5 intro__c--v" viewBox="0 -1490 1144 1490"><path d="M584 27Q427 27 307.5 -19.5Q188 -66 117.5 -150.0Q47 -234 36 -345H430Q437 -298 475.5 -268.5Q514 -239 578 -239Q637 -239 669.5 -257.5Q702 -276 702 -307Q702 -358 584 -377L386 -409Q227 -435 143.5 -515.0Q60 -595 60 -723Q60 -887 192.5 -982.0Q325 -1077 562 -1077Q801 -1077 938.5 -977.0Q1076 -877 1080 -705H716Q715 -751 675.5 -782.0Q636 -813 578 -813Q520 -813 489.0 -793.5Q458 -774 458 -745Q458 -694 556 -677L782 -639Q949 -611 1028.5 -541.5Q1108 -472 1108 -353Q1108 -241 1043.0 -155.5Q978 -70 860.0 -21.5Q742 27 584 27Z"/></svg><svg class="intro__c intro__c6 intro__c--v" viewBox="0 -1490 572 1490"><path d="M86 0V-1056H486V0ZM285 -1126Q191 -1126 131.5 -1180.0Q72 -1234 72 -1319Q72 -1403 131.5 -1456.5Q191 -1510 285 -1510Q379 -1510 438.5 -1456.5Q498 -1403 498 -1319Q498 -1234 438.5 -1180.0Q379 -1126 285 -1126Z"/></svg><svg class="intro__c intro__c7 intro__c--v" viewBox="0 -1490 1194 1490"><path d="M610 24Q441 24 314.0 -45.0Q187 -114 116.5 -238.5Q46 -363 46 -528Q46 -693 116.5 -817.5Q187 -942 314.0 -1011.0Q441 -1080 610 -1080Q765 -1080 885.0 -1021.5Q1005 -963 1075.0 -859.0Q1145 -755 1150 -618H768Q763 -689 722.5 -729.5Q682 -770 618 -770Q539 -770 494.5 -706.0Q450 -642 450 -528Q450 -415 494.5 -350.5Q539 -286 618 -286Q682 -286 722.5 -328.0Q763 -370 768 -442H1150Q1150 -305 1081.0 -200.0Q1012 -95 890.5 -35.5Q769 24 610 24Z"/></svg></div></div>
+  <svg class="intro__l" viewBox="0 0 1000 1000" focusable="false"><defs><linearGradient id="in-stem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a48bff"/><stop offset=".85" stop-color="#7b5cff"/><stop offset="1" stop-color="#5b3be0"/></linearGradient><linearGradient id="in-foot" gradientUnits="userSpaceOnUse" x1="485" y1="0" x2="725" y2="0"><stop offset="0" stop-color="#3f22b8"/><stop offset=".45" stop-color="#6847f0"/><stop offset="1" stop-color="#a48bff"/></linearGradient></defs><path d="M345 205h125a15 15 0 0 1 15 15v565H330V220a15 15 0 0 1 15-15z" fill="url(#in-stem)"/><path d="M525 625h25a15 15 0 0 1 15 15V785H510V640a15 15 0 0 1 15-15z" fill="url(#in-foot)"/><path d="M605 675h25a15 15 0 0 1 15 15V785H590V690a15 15 0 0 1 15-15z" fill="url(#in-foot)"/><path d="M685 725h25a15 15 0 0 1 15 15V785H670V740a15 15 0 0 1 15-15z" fill="url(#in-foot)"/></svg>
+</div>
+    <!-- brand:intro:end -->
+    <script src="/leomusic-web/intro.js"></script>
+    <!-- Refraction filter for Chromium; Safari ignores it and keeps frosted glass. -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <filter id="lg-refract" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.008 0.012" numOctaves="2" seed="7" result="map" />
+        <feGaussianBlur in="map" stdDeviation="2" result="soft" />
+        <feDisplacementMap in="SourceGraphic" in2="soft" scale="18" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </svg>
+  </body>
+</html>

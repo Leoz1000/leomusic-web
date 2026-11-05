@@ -1,0 +1,1 @@
+.mood-title{overflow-wrap:anywhere;margin-top:56px}.mood-playlists{grid-template-columns:repeat(auto-fill, var(--card,160px));padding:8px var(--gutter) 0;justify-content:space-between;gap:22px 14px;display:grid}
