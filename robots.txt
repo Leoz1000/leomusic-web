@@ -1,0 +1,3 @@
+# A private service for invited people only: no search engine may list it.
+User-agent: *
+Disallow: /
